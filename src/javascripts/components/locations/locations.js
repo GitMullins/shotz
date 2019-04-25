@@ -67,10 +67,11 @@ const filterButtonEvent = (e) => {
 };
 
 const filterByTextEvent = (e) => {
-  const searchText = e.target.value;
+  const searchText = e.target.value.toLowerCase();
   const searchLocations = locations.filter((x) => {
-    const hasName = x.name.includes(searchText);
-    const hasAddress = x.address.includes(searchText);
+    const hasName = x.name.toLowerCase().includes(searchText);
+    console.error(hasName);
+    const hasAddress = x.address.toLowerCase().includes(searchText);
     return hasName || hasAddress;
   });
   domStringBuilder(searchLocations);
@@ -82,13 +83,15 @@ const initializeLocations = () => {
       const movieResults = resp.data.locations;
       locations = movieResults;
       domStringBuilder(locations);
-      document.getElementById('After Dark').addEventListener('click', filterButtonEvent);
-      document.getElementById('Afternoon').addEventListener('click', filterButtonEvent);
-      document.getElementById('Evening').addEventListener('click', filterButtonEvent);
-      document.getElementById('Morning').addEventListener('click', filterButtonEvent);
+      document.getElementById('dark').addEventListener('click', filterButtonEvent);
+      document.getElementById('afternoon').addEventListener('click', filterButtonEvent);
+      document.getElementById('evening').addEventListener('click', filterButtonEvent);
+      document.getElementById('morning').addEventListener('click', filterButtonEvent);
+      document.getElementById('all').addEventListener('click', filterButtonEvent);
       document.getElementById('search-input').addEventListener('keyup', filterByTextEvent);
     })
     .catch(err => console.error(err));
+  util.printToDom('locations', '');
   // .catch(err) => {
   //   console.error(err)
   // });
