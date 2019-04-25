@@ -19,7 +19,15 @@ const domstringBuilder = () => {
   });
   domString += '</div>';
   util.printToDom('movies', domString);
-  // printToDom('movies', domString)
+};
+
+const movieInfo = (e) => {
+  e.preventDefault();
+  console.error('movie1');
+};
+
+const buttonEvents = () => {
+  document.getElementById('movie1').addEventListener('click', movieInfo);
 };
 
 const initializeMovies = () => {
@@ -28,6 +36,8 @@ const initializeMovies = () => {
       const movieResults = resp.data.movies;
       movies = movieResults;
       domstringBuilder();
+      buttonEvents();
+      // movieInfo();
     })
     .catch(err => console.error(err));
   // .catch(err) => {
