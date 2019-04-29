@@ -9,7 +9,7 @@ const domstringBuilder = () => {
   let domString = '';
   domString += '<div class="row">';
   movies.forEach((movie) => {
-    domString += `<div id="${movie.id}" class="card col-sm movie" style="width: 18rem;">`;
+    domString += `<div id="${movie.id}" class="card col-3 movie" style="width: 18rem;">`;
     domString += `<div class="card-header">${movie.name}</div>`;
     domString += `<div class="card-text">${movie.genre}</div>`;
     domString += `<div class="card-text">${movie.releaseDate}</div>`;
@@ -21,22 +21,12 @@ const domstringBuilder = () => {
   util.printToDom('movies', domString);
 };
 
-const movieInfo = (e) => {
-  e.preventDefault();
-  console.error('movie1');
-};
-
-const buttonEvents = () => {
-  document.getElementById('movie1').addEventListener('click', movieInfo);
-};
-
 const initializeMovies = () => {
   moviesData.getMoviesData()
     .then((resp) => {
       const movieResults = resp.data.movies;
       movies = movieResults;
       domstringBuilder();
-      buttonEvents();
       // movieInfo();
     })
     .catch(err => console.error(err));
@@ -45,4 +35,4 @@ const initializeMovies = () => {
   // });
 };
 
-export default { initializeMovies };
+export default { initializeMovies, domstringBuilder };
