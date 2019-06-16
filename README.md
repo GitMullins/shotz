@@ -4,6 +4,7 @@
 A website to keep track of movies and their shooting locations.
 
 ## Screenshots
+![image of movies and locations] ()
 
 ## Installation Instructions
 * Clone down this repo
