@@ -6,7 +6,7 @@ A website to keep track of movies and their shooting locations.
 * Locations will sort by times of day via button click
 
 ## Screenshots
-![image of movies and locations] (https://raw.githubusercontent.com/GitMullins/shotz/master/src/img/screenshot.PNG)
+![image of movies and locations](https://raw.githubusercontent.com/GitMullins/shotz/master/src/img/screenshot.PNG)
 
 ## Installation Instructions
 * Clone down this repo
